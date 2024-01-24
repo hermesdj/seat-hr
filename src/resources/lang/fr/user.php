@@ -1,30 +1,30 @@
 <?php
 
 return [
-    'title' => 'SeAT-HR Profile',
-    'sub-title' => 'Profile',
+    'title' => 'Profil SeAT-HR',
+    'sub-title' => 'Profil',
     'create' => [
-        'title' => 'TO DO',
-        'sub-title' => 'TO DO',
+        'title' => 'À faire',
+        'sub-title' => 'À faire',
     ],
     'applications' => [
-        'apply' => 'Apply to Corporation',
-        'view' => 'View Application',
-        'submit' => 'Submit Application',
+        'apply' => 'Postuler à la Corporation',
+        'view' => 'Voir les candidatures',
+        'submit' => 'Présenter une Candidature',
     ],
 
     'blacklist' => [
-        'title' => 'Blacklist',
+        'title' => 'Liste noire',
         'create' => [
-            'sub-title' => 'New blacklist record'
+            'sub-title' => 'Nouvel enregistrement sur la liste noire'
         ],
         'edit' => [
-            'sub-title' => 'Edit blacklist record'
+            'sub-title' => 'Modifier l\'enregisrement de la liste noire'
         ]
     ],
 
     'kick_history' => [
-        'title' => 'Kick History',
+        'title' => 'Historique des kicks',
         'create' => [
             'sub-title' => 'New kick history record'
         ],
@@ -36,10 +36,10 @@ return [
     'notes' => [
         'title' => 'Notes',
         'create' => [
-            'sub-title' => 'New note'
+            'sub-title' => 'Nouvelle note'
         ],
         'edit' => [
-            'sub-title' => 'Edit note'
+            'sub-title' => 'Editer une note'
         ]
     ]
 ];

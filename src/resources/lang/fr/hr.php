@@ -1,24 +1,24 @@
 <?php
 
 return [
-    'title' => 'SeAT-HR: Human Resource',
-    'setup' => 'Setup',
+    'title' => 'SeAT-HR: Ressource humaine',
+    'setup' => 'Installation',
 
     'applications' => 'Applications',
-    'blacklist' => 'Blacklist',
+    'blacklist' => 'Liste noire',
     'intel' => 'Intel',
-    'kick_history' => 'Kick History',
+    'kick_history' => 'Historique des exclusions',
     'notes' => 'Notes',
-    'sheet' => 'Sheet',
-    'unknown' => 'Unknown',
-    'user' => 'User',
-    'summary' => 'Summary',
+    'sheet' => 'Feuille',
+    'unknown' => 'Inconnu',
+    'user' => 'Utilisateur',
+    'summary' => 'Résumé',
 
     // old - still need?
-    'config-title' => 'SeAT Human Resources Configuration',
-    'submit' => 'Submit Application',
-    'list' => 'Form/Application List',
-    'corporation' => 'Corporation Application',
-    'review'=> 'Review Applications',
+    'config-title' => 'Configuration des ressources humaines de SeAT',
+    'submit' => 'Soumette une candidature',
+    'list' => 'Formulaire/Liste de candidature',
+    'corporation' => 'Candidature de corporation',
+    'review'=> 'Examiner les candidatures',
     'index' => 'Test'
 ];
