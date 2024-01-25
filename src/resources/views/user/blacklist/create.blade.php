@@ -9,28 +9,28 @@
         </div>
         <form action="{{ route('seat-hr.profile.blacklist.create', ['character' => $character]) }}" method="post">
             <div class="card-body">
-                    {{ csrf_field() }}
+                {{ csrf_field() }}
 
-                    <div class="form-group">
-                        <label for="blacklisted_by">Blacklisted By</label>
-                        <input type="text" name="blacklisted_by" id="blacklisted_by" class="form-control">
-                    </div>
+                <div class="form-group">
+                    <label for="blacklisted_by">{{ trans('seat-hr::user.blacklist.columns.blacklisted_by') }}</label>
+                    <input type="text" name="blacklisted_by" id="blacklisted_by" class="form-control">
+                </div>
 
-                    <div class="form-group">
-                        <label for="blacklisted_at">Blacklisted At</label>
-                        <input type="date" name="blacklisted_at" id="blacklisted_at" class="form-control">
-                    </div>
+                <div class="form-group">
+                    <label for="blacklisted_at">{{ trans('seat-hr::user.blacklist.columns.blacklisted_at') }}</label>
+                    <input type="date" name="blacklisted_at" id="blacklisted_at" class="form-control">
+                </div>
 
-                    <div class="form-group">
-                        <label for="reason">Reason</label>
-                        <textarea name="reason" id="reason" rows="5" class="form-control"></textarea>
-                    </div>
+                <div class="form-group">
+                    <label for="reason">{{ trans('seat-hr::user.blacklist.columns.reason') }}</label>
+                    <textarea name="reason" id="reason" rows="5" class="form-control"></textarea>
+                </div>
 
             </div>
             <div class="card-footer">
                 <button class="btn btn-success btn-block" type="submit">
                     <i class="fas fa-save"></i>
-                    Submit
+                    {{ trans('seat-hr::hr.submit_btn') }}
                 </button>
             </div>
         </form>

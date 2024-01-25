@@ -5,32 +5,32 @@
 @section('profile_content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Application: {{ $application->id }}</h3>
+            <h3 class="card-title">{{trans('seat-hr::user.applications.application.title', ['application_id' => $application->id])}}</h3>
         </div>
 
         <div class="card-text">
             <table class="table">
                 <thead>
-                    <tr>
-                        <td>Status</td>
-                        <td>Can Reapply?</td>
-                        <td>Created At</td>
-                        <td>Last Updated</td>
-                    </tr>
+                <tr>
+                    <td>{{trans('seat-hr::user.applications.application.columns.status')}}</td>
+                    <td>{{trans('seat-hr::user.applications.application.columns.can_reapply')}}</td>
+                    <td>{{trans('seat-hr::user.applications.application.columns.created_at')}}</td>
+                    <td>{{trans('seat-hr::user.applications.application.columns.last_updated')}}</td>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="bg-{{ $application->currentStatus->status->color }}">{{ $application->currentStatus->status->name }}</td>
-                        <td class="text-{{ $application->can_reapply == 1 ? 'primary' : 'danger' }}">
-                            {{ $application->can_reapply == 1 ? 'Yes' : 'No' }}
-                        </td>
-                        <td data-toggle="tooltip" data-placement="top" title="{{ $application->created_at }}">
-                            {{ $application->created_at->diffForHumans() }}
-                        </td>
-                        <td data-toggle="tooltip" data-placement="top" title="{{ $application->updated_at }}">
-                            {{ $application->updated_at->diffForHumans() }}
-                        </td>
-                    </tr>
+                <tr>
+                    <td class="bg-{{ $application->currentStatus->status->color }}">{{ $application->currentStatus->status->name }}</td>
+                    <td class="text-{{ $application->can_reapply == 1 ? 'primary' : 'danger' }}">
+                        {{ $application->can_reapply == 1 ? trans('seat-hr::user.applications.reapply.yes') : trans('seat-hr::user.applications.reapply.no') }}
+                    </td>
+                    <td data-toggle="tooltip" data-placement="top" title="{{ $application->created_at }}">
+                        {{ $application->created_at->diffForHumans() }}
+                    </td>
+                    <td data-toggle="tooltip" data-placement="top" title="{{ $application->updated_at }}">
+                        {{ $application->updated_at->diffForHumans() }}
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -39,17 +39,17 @@
 
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Answers</h3>
+            <h3 class="card-title">{{trans('seat-hr::user.applications.answers.title')}}</h3>
         </div>
 
         <div class="card-text">
             <table class="table">
                 <thead>
-                    <tr>
-                        <td>#</td>
-                        <td>Question</td>
-                        <td>Response</td>
-                    </tr>
+                <tr>
+                    <td>#</td>
+                    <td>{{trans('seat-hr::user.applications.answers.columns.question')}}</td>
+                    <td>{{trans('seat-hr::user.applications.answers.columns.response')}}</td>
+                </tr>
                 </thead>
                 <tbody>
 
@@ -59,7 +59,7 @@
                         <td>{{ $answer->question->name }}</td>
 
                         @if($answer->question->type == 'boolean')
-                            <td>{{ $answer->response == 1 ? 'Yes' : 'No' }}</td>
+                            <td>{{ $answer->response == 1 ? trans('seat-hr::user.applications.answers.boolean.yes') : trans('seat-hr::user.applications.answers.boolean.no') }}</td>
                         @elseif(in_array($answer->question->type, ['date', 'datetime']))
                             <td>{{ $answer->response }}</td>
                         @else

@@ -4,18 +4,23 @@ namespace Cryocaustik\SeatHr\http\controllers\user;
 
 use Cryocaustik\SeatHr\models\SeatHrKickHistory;
 use Cryocaustik\SeatHr\models\SeatHrProfile;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Seat\Eveapi\Models\Character\CharacterInfo;
+use Seat\Web\Http\Controllers\Controller;
 
-class KickHistoryController extends \Seat\Web\Http\Controllers\Controller
+class KickHistoryController extends Controller
 {
-    public function index()
+    public function index(): View|Factory|Application
     {
         return view('seat-hr::user.kickhistory.index');
     }
 
-    public function create(Request $request, CharacterInfo $character)
+    public function create(Request $request, CharacterInfo $character): Factory|View|RedirectResponse|Application
     {
         if($request->isMethod('post'))
         {
@@ -74,7 +79,7 @@ class KickHistoryController extends \Seat\Web\Http\Controllers\Controller
         return view('seat-hr::user.kickhistory.edit', ['kickhistory' => $kickhistory]);
     }
 
-    public function delete(CharacterInfo $character, SeatHrKickHistory $kickhistory)
+    public function delete(CharacterInfo $character, SeatHrKickHistory $kickhistory): RedirectResponse
     {
         $kickhistory->delete();
 

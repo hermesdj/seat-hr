@@ -4,11 +4,15 @@ namespace Cryocaustik\SeatHr\http\controllers\configuration;
 
 use Cryocaustik\SeatHr\http\datatables\CorporationDataTable;
 use Cryocaustik\SeatHr\models\SeatHrCorporation;
-use Illuminate\Validation\Rule;
-use Seat\Eveapi\Models\Corporation\CorporationInfo;
-use \Seat\Web\Http\Controllers\Controller;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Seat\Eveapi\Models\Corporation\CorporationInfo;
+use Seat\Web\Http\Controllers\Controller;
 
 
 class CorporationController extends Controller
@@ -18,7 +22,7 @@ class CorporationController extends Controller
         return $dataTable->render('seat-hr::configuration.corporation.view');
     }
 
-    public function create(Request $request)
+    public function create(Request $request): View|Factory|Application|RedirectResponse
     {
         if ($request->isMethod('post')) {
             $data = $request->all();
@@ -43,12 +47,12 @@ class CorporationController extends Controller
                 ->with('success', 'Corporation added successfully.');
         }
 
-        $available_corps = CorporationInfo::get(['corporation_id', 'name']);
+        $available_corps = CorporationInfo::where('creator_id', '!=', 1)->get(['corporation_id', 'name']);
 
         return view('seat-hr::configuration.corporation.create', ['available_corps' => $available_corps]);
     }
 
-    public function edit(Request $request, $id)
+    public function edit(Request $request, $id): View|Factory|Application|RedirectResponse
     {
         $corporation = SeatHrCorporation::find($id);
         if (!$corporation) {
@@ -70,7 +74,7 @@ class CorporationController extends Controller
             }
 
             $corporation->fill($data);
-            if(!$corporation->isDirty()){
+            if (!$corporation->isDirty()) {
                 return redirect()->route('seat-hr.config.corp.view')
                     ->with('info', 'No changes found; corporation not updated.');
             }
@@ -83,7 +87,7 @@ class CorporationController extends Controller
         return view('seat-hr::configuration.corporation.edit', ['corporation' => $corporation]);
     }
 
-    public function delete($id)
+    public function delete($id): RedirectResponse
     {
         $corporation = SeatHrCorporation::find($id);
         if (!$corporation) {

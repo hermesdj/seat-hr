@@ -3,6 +3,7 @@
 namespace Cryocaustik\SeatHr\models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\DB;
 
 class SeatHrCorporationQuestion extends Model
@@ -13,12 +14,12 @@ class SeatHrCorporationQuestion extends Model
         'active',
     ];
 
-    public function corporation()
+    public function corporation(): BelongsTo
     {
         return $this->belongsTo(SeatHrCorporation::class, 'corporation_id');
     }
 
-    public function question()
+    public function question(): BelongsTo
     {
         return $this->belongsTo(SeatHrQuestion::class, 'question_id');
     }

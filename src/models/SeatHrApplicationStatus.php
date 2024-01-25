@@ -3,6 +3,7 @@
 namespace Cryocaustik\SeatHr\models;
 
 use \Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SeatHrApplicationStatus extends Model
 {
@@ -11,22 +12,22 @@ class SeatHrApplicationStatus extends Model
         'active' => 'boolean',
     ];
 
-    public function status()
+    public function status(): BelongsTo
     {
         return $this->belongsTo(SeatHrStatus::class, 'status_id');
     }
 
-    public function assignee()
+    public function assignee(): BelongsTo
     {
         return $this->belongsTo(User::class, 'assigned_to', 'id');
     }
 
-    public function assigner()
+    public function assigner(): BelongsTo
     {
         return $this->belongsTo(User::class, 'assigned_by', 'id');
     }
 
-    public function decider()
+    public function decider(): BelongsTo
     {
         return $this->belongsTo(User::class, 'assigned_by', 'id');
     }

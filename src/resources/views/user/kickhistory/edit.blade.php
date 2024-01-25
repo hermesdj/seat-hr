@@ -14,17 +14,17 @@
                 <input type="hidden" name="id" id="id" value="{{ $kickhistory->id }}" class="hidden" disabled>
 
                 <div class="form-group">
-                    <label for="kicked_by">Kicked By</label>
+                    <label for="kicked_by">{{ trans('seat-hr::user.kick_history.columns.kicked_by') }}</label>
                     <input type="text" name="kicked_by" id="kicked_by" value="{{ $kickhistory->kicked_by }}" class="form-control">
                 </div>
 
                 <div class="form-group">
-                    <label for="kicked_at">Kicked At</label>
+                    <label for="kicked_at">{{ trans('seat-hr::user.kick_history.columns.kicked_at') }}</label>
                     <input type="date" name="kicked_at" id="kicked_at" value="{{ $kickhistory->kicked_at }}" class="form-control">
                 </div>
 
                 <div class="form-group">
-                    <label for="reason">Reason</label>
+                    <label for="reason">{{ trans('seat-hr::user.kick_history.columns.reason') }}</label>
                     <textarea name="reason" id="reason" rows="5" class="form-control">{{ $kickhistory->reason }}</textarea>
                 </div>
 
@@ -32,7 +32,7 @@
             <div class="card-footer">
                 <button class="btn btn-success btn-block" type="submit">
                     <i class="fas fa-save"></i>
-                    Update
+                    {{ trans('seat-hr::hr.update_btn') }}
                 </button>
             </div>
         </form>

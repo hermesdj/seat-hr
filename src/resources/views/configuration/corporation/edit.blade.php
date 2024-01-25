@@ -12,13 +12,14 @@
                 <div class="card-body">
 
                     <div class="form-group">
-                        <label for="hr_head">Corporation</label>
+                        <label for="hr_head">{{trans('seat-hr::corp.fields.name')}}</label>
                         <input type="text" class="form-control" disabled value="{{ $corporation->corporation->name }}">
                     </div>
 
                     <div class="form-group">
-                        <label for="hr_head">HR Head</label>
-                        <input type="text" class="form-control" name="hr_head" value="{{ $corporation->hr_head }}" required>
+                        <label for="hr_head">{{trans('seat-hr::corp.fields.hr_head')}}</label>
+                        <input type="text" class="form-control" name="hr_head" value="{{ $corporation->hr_head }}"
+                               required>
                     </div>
 
                     <div class="custom-control custom-switch">
@@ -27,7 +28,8 @@
                                id="has_restricted_questions" value="1"
                                @if($corporation->has_restricted_questions) checked @endif
                         >
-                        <label for="has_restricted_questions" class="custom-control-label">Has Restricted Questions?</label>
+                        <label for="has_restricted_questions"
+                               class="custom-control-label">{{trans('seat-hr::corp.fields.has_restricted_questions')}}</label>
                     </div>
 
                     <div class="custom-control custom-switch">
@@ -36,15 +38,17 @@
                                id="accepting_applications" value="1"
                                @if($corporation->accepting_applications) checked @endif
                         >
-                        <label for="accepting_applications" class="custom-control-label">Accepting Applications?</label>
+                        <label for="accepting_applications"
+                               class="custom-control-label">{{trans('seat-hr::corp.fields.accepting_applications')}}</label>
                     </div>
 
                     <div class="form-group">
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary" type="submit">Save</button>
-                    <a href="{{ route('seat-hr.config.corp.view') }}" class="btn btn-secondary">Cancel</a>
+                    <button class="btn btn-primary" type="submit">{{trans('seat-hr::hr.save_btn')}}</button>
+                    <a href="{{ route('seat-hr.config.corp.view') }}"
+                       class="btn btn-secondary">{{trans('seat-hr::hr.cancel_btn')}}</a>
                 </div>
             </form>
         </div>

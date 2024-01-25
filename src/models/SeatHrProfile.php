@@ -3,6 +3,8 @@
 namespace Cryocaustik\SeatHr\models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class SeatHrProfile extends Model
 {
@@ -11,12 +13,12 @@ class SeatHrProfile extends Model
         'probation' => 'boolean',
     ];
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function applications()
+    public function applications(): HasMany
     {
         return $this->hasMany(SeatHrApplication::class, 'profile_id', 'id');
     }

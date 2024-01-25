@@ -3,6 +3,9 @@
 namespace Cryocaustik\SeatHr\http\datatables;
 
 use Cryocaustik\SeatHr\models\SeatHrCorporationQuestion;
+use Yajra\DataTables\DataTableAbstract;
+use Yajra\DataTables\Exceptions\Exception;
+use Yajra\DataTables\Html\Builder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
@@ -13,7 +16,8 @@ class CorporationQuestionDataTable extends DataTable
      * Build DataTable class.
      *
      * @param mixed $query Results from query() method.
-     * @return \Yajra\DataTables\DataTableAbstract
+     * @return DataTableAbstract
+     * @throws Exception
      */
     public function dataTable(mixed $query): \Yajra\DataTables\Contracts\DataTable
     {
@@ -27,16 +31,16 @@ class CorporationQuestionDataTable extends DataTable
                 $bool = !is_null($row->id);
                 return view('seat-hr::configuration.corporation_questions.partials.bool', ['bool' => $bool]);
             })
-            ->editColumn('question_type', fn($row): string => ucwords((string) $row->question_type))
+            ->editColumn('question_type', fn($row): string => ucwords((string)$row->question_type))
             ->addColumn('action', fn($row) => view('seat-hr::configuration.corporation_questions.partials.actions', ['row' => $row]));
     }
 
     /**
      * Optional method if you want to use html builder.
      *
-     * @return \Yajra\DataTables\Html\Builder
+     * @return Builder
      */
-    public function html()
+    public function html(): Builder
     {
         return $this->builder()
             ->setTableId('corporationquestiondatatable-table')
@@ -53,9 +57,10 @@ class CorporationQuestionDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
+     * @param SeatHrCorporationQuestion $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(SeatHrCorporationQuestion $model)
+    public function query(SeatHrCorporationQuestion $model): \Illuminate\Database\Eloquent\Builder
     {
         return $model->newQuery()->questions($this->request->id);
     }
@@ -68,12 +73,12 @@ class CorporationQuestionDataTable extends DataTable
     protected function getColumns(): array
     {
         return [
-            Column::make('question_id')->title('ID')->searchable(false)->hidden(),
-            Column::make('question_name')->title('Question')->name('seat_hr_questions.name'),
-            Column::make('question_type')->title('Data Type')->searchable(false),
-            Column::make('active')->title('Active?')->searchable(false),
-            Column::make('used')->title('Used?')->searchable(false),
-            Column::computed('action')
+            Column::make('question_id')->title(trans('seat-hr::question.fields.id'))->searchable(false)->hidden(),
+            Column::make('question_name')->title(trans('seat-hr::question.fields.question'))->name('seat_hr_questions.name'),
+            Column::make('question_type')->title(trans('seat-hr::question.fields.data_type'))->searchable(false),
+            Column::make('active')->title(trans('seat-hr::question.fields.active'))->searchable(false),
+            Column::make('used')->title(trans('seat-hr::question.fields.used'))->searchable(false),
+            Column::computed('action', trans('seat-hr::hr.actions_header'))
                 ->searchable(false)
                 ->exportable(false)
                 ->printable(false)

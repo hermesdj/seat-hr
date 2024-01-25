@@ -12,16 +12,16 @@
                     {{ csrf_field() }}
 
                     <div class="form-group">
-                        <label for="severity">Severity</label>
+                        <label for="severity">{{ trans('seat-hr::user.notes_severity_header') }}</label>
                         <select name="severity" id="severity" class="form-control"  required>
-                            <option value="info">Info</option>
-                            <option value="warning">Warning</option>
-                            <option value="danger">Danger</option>
+                            <option value="info">{{ trans('seat-hr::user.severity_level_info') }}</option>
+                            <option value="warning">{{ trans('seat-hr::user.severity_level_warning') }}</option>
+                            <option value="danger">{{ trans('seat-hr::user.severity_level_danger') }}</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="note">Note</label>
+                        <label for="note">{{ trans('seat-hr::user.notes_note_header') }}</label>
                         <textarea name="note" id="note" rows="5" class="form-control"></textarea>
                     </div>
 
@@ -29,7 +29,7 @@
             <div class="card-footer">
                 <button class="btn btn-success btn-block" type="submit">
                     <i class="fas fa-save"></i>
-                    Submit
+                    {{ trans('seat-hr::hr.submit_btn') }}
                 </button>
             </div>
         </form>
