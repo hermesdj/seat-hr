@@ -44,18 +44,18 @@ class StatusDataTable extends DataTable
     public function html(): \Yajra\DataTables\Html\Builder
     {
         return $this->builder()
-                    ->setTableId('statusdatatable-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
+            ->setTableId('statusdatatable-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('Bfrtip')
+            ->orderBy(1)
+            ->buttons(
+                Button::make('create'),
+                Button::make('export'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            );
     }
 
     /**
@@ -66,15 +66,15 @@ class StatusDataTable extends DataTable
     protected function getColumns(): array
     {
         return [
-            Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            Column::computed('action', trans('seat-hr::hr.actions_header'))
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
+            Column::make('id')->title(trans('seat-hr::status.fields.id')),
+            Column::make('add your columns')->title(trans('seat-hr::status.fields.add_your_columns')),
+            Column::make('created_at')->title(trans('seat-hr::hr.created_at_header')),
+            Column::make('updated_at')->title(trans('seat-hr::hr.updated_at_header')),
         ];
     }
 

@@ -29,7 +29,7 @@
                                             selected
                                         @endif
                                 >
-                                    {{trans('seat-hr::question.data_types'.$opt)}}
+                                    {{trans('seat-hr::question.data_types.'.$opt)}}
                                 </option>
                             @endforeach
                         </select>

@@ -31,7 +31,7 @@ class CorporationQuestionDataTable extends DataTable
                 $bool = !is_null($row->id);
                 return view('seat-hr::configuration.corporation_questions.partials.bool', ['bool' => $bool]);
             })
-            ->editColumn('question_type', fn($row): string => ucwords((string) $row->question_type))
+            ->editColumn('question_type', fn($row): string => ucwords((string)$row->question_type))
             ->addColumn('action', fn($row) => view('seat-hr::configuration.corporation_questions.partials.actions', ['row' => $row]));
     }
 
@@ -73,12 +73,12 @@ class CorporationQuestionDataTable extends DataTable
     protected function getColumns(): array
     {
         return [
-            Column::make('question_id')->title('ID')->searchable(false)->hidden(),
-            Column::make('question_name')->title('Question')->name('seat_hr_questions.name'),
-            Column::make('question_type')->title('Data Type')->searchable(false),
-            Column::make('active')->title('Active?')->searchable(false),
-            Column::make('used')->title('Used?')->searchable(false),
-            Column::computed('action')
+            Column::make('question_id')->title(trans('seat-hr::question.fields.id'))->searchable(false)->hidden(),
+            Column::make('question_name')->title(trans('seat-hr::question.fields.question'))->name('seat_hr_questions.name'),
+            Column::make('question_type')->title(trans('seat-hr::question.fields.data_type'))->searchable(false),
+            Column::make('active')->title(trans('seat-hr::question.fields.active'))->searchable(false),
+            Column::make('used')->title(trans('seat-hr::question.fields.used'))->searchable(false),
+            Column::computed('action', trans('seat-hr::hr.actions_header'))
                 ->searchable(false)
                 ->exportable(false)
                 ->printable(false)

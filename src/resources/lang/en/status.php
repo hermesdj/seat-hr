@@ -10,9 +10,11 @@ return [
     ],
 
     'fields' => [
+        'id' => 'Id',
         'name' => 'Name',
         'color' => 'Color',
-        'enabled' => 'Enabled ?'
+        'enabled' => 'Enabled ?',
+        'add_your_columns' => 'Add your columns'
     ],
 
     'colors' => [

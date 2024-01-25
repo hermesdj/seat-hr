@@ -31,8 +31,7 @@ class CorporationDataTable extends DataTable
                 $bool = $row->accepting_applications;
                 return view('seat-hr::configuration.corporation.partials.bool', ['bool' => $bool]);
             })
-            ->addColumn('action', fn($row) => view('seat-hr::configuration.corporation.partials.actions', ['row' => $row])->render())
-            ;
+            ->addColumn('action', fn($row) => view('seat-hr::configuration.corporation.partials.actions', ['row' => $row])->render());
     }
 
     /**
@@ -54,17 +53,16 @@ class CorporationDataTable extends DataTable
     public function html(): \Yajra\DataTables\Html\Builder
     {
         return $this->builder()
-                    ->setTableId('corporationdatatable-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create')
-                            ->action('window.location = "'. route('seat-hr.config.corp.create') .'"')
-                            ->text('Add Corporation')
-                    )
-            ;
+            ->setTableId('corporationdatatable-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('Bfrtip')
+            ->orderBy(1)
+            ->buttons(
+                Button::make('create')
+                    ->action('window.location = "' . route('seat-hr.config.corp.create') . '"')
+                    ->text(trans('seat-hr::corp.create.title'))
+            );
     }
 
 
@@ -76,11 +74,11 @@ class CorporationDataTable extends DataTable
     protected function getColumns(): array
     {
         return [
-            Column::make('corporation_id')->title('Corporation'),
-            Column::make('hr_head'),
-            Column::make('has_restricted_questions'),
-            Column::make('accepting_applications'),
-            Column::computed('action')
+            Column::make('corporation_id')->title(trans('seat-hr::corp.fields.name')),
+            Column::make('hr_head')->title(trans('seat-hr::corp.fields.hr_head')),
+            Column::make('has_restricted_questions')->title(trans('seat-hr::corp.fields.has_restricted_questions')),
+            Column::make('accepting_applications')->title(trans('seat-hr::corp.fields.accepting_applications')),
+            Column::computed('action', trans('seat-hr::hr.actions_header'))
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)

@@ -6,10 +6,8 @@ use Cryocaustik\SeatHr\models\SeatHrApplication;
 use Yajra\DataTables\DataTableAbstract;
 use Yajra\DataTables\Exceptions\Exception;
 use Yajra\DataTables\Html\Builder;
-use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
-use Illuminate\Support\Facades\Log;
 
 class ApplicationReviewDataTable extends DataTable
 {
@@ -68,14 +66,14 @@ class ApplicationReviewDataTable extends DataTable
     protected function getColumns(): array
     {
         return [
-            ['data' => 'id', 'title' => 'App ID'],
-            ['data' => 'profile.user.name', 'title' => 'Profile'],
-            ['data' => 'corporation.corporation.name', 'title' => 'Corporation', 'sortable' => false],
-            ['data' => 'currentStatus.status.name', 'title' => 'Status', 'sortable' => false],
-            ['data' => 'currentStatus.assigner.name', 'title' => 'Status By'],
-            ['data' => 'can_reapply', 'title' => 'Can Reapply?'],
-            ['data' => 'created_at', 'title' => 'Submitted At'],
-            Column::computed('action')
+            ['data' => 'id', 'title' => trans('seat-hr::user.applications.application.columns.app_id')],
+            ['data' => 'profile.user.name', 'title' => trans('seat-hr::user.applications.application.columns.profile')],
+            ['data' => 'corporation.corporation.name', 'title' => trans('seat-hr::user.applications.columns.corporation'), 'sortable' => false],
+            ['data' => 'currentStatus.status.name', 'title' => trans('seat-hr::user.applications.application.columns.status'), 'sortable' => false],
+            ['data' => 'currentStatus.assigner.name', 'title' => trans('seat-hr::user.applications.application.columns.status_by')],
+            ['data' => 'can_reapply', 'title' => trans('seat-hr::user.applications.application.columns.can_reapply')],
+            ['data' => 'created_at', 'title' => trans('seat-hr::user.applications.columns.submitted_at')],
+            Column::computed('action', trans('seat-hr::hr.actions_header'))
                 ->exportable(false)
                 ->printable(false)
                 ->sortable(false)

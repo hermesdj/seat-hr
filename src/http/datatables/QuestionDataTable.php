@@ -23,7 +23,7 @@ class QuestionDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->editColumn('type', fn($row): string => ucwords((string) $row->type))
+            ->editColumn('type', fn($row): string => ucwords((string)$row->type))
             ->editColumn('active', fn($row) => view('seat-hr::configuration.question.partials.active', ['row' => $row]))
             ->addColumn('action', fn($row) => view('seat-hr::configuration.question.partials.actions', ['row' => $row])->render());
     }
@@ -47,15 +47,15 @@ class QuestionDataTable extends DataTable
     public function html(): \Yajra\DataTables\Html\Builder
     {
         return $this->builder()
-                    ->setTableId('questiondatatable-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create')
-                            ->action('window.location = "'. route('seat-hr.config.question.create') .'"')
-                    );
+            ->setTableId('questiondatatable-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('Bfrtip')
+            ->orderBy(1)
+            ->buttons(
+                Button::make('create')
+                    ->action('window.location = "' . route('seat-hr.config.question.create') . '"')
+            );
     }
 
     /**
@@ -66,11 +66,11 @@ class QuestionDataTable extends DataTable
     protected function getColumns(): array
     {
         return [
-            Column::make('id'),
-            Column::make('name')->title('Question'),
-            Column::make('type')->title('Data Type'),
-            Column::make('active')->title('Enabled'),
-            Column::computed('action')
+            Column::make('id')->title(trans('seat-hr::question.fields.id')),
+            Column::make('name')->title(trans('seat-hr::question.fields.question')),
+            Column::make('type')->title(trans('seat-hr::question.fields.data_type')),
+            Column::make('active')->title(trans('seat-hr::question.fields.enabled')),
+            Column::computed('action', trans('seat-hr::hr.actions_header'))
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)

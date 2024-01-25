@@ -8,11 +8,11 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Validation\Rule;
-use Seat\Eveapi\Models\Corporation\CorporationInfo;
-use \Seat\Web\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Seat\Eveapi\Models\Corporation\CorporationInfo;
+use Seat\Web\Http\Controllers\Controller;
 
 
 class CorporationController extends Controller
@@ -47,7 +47,7 @@ class CorporationController extends Controller
                 ->with('success', 'Corporation added successfully.');
         }
 
-        $available_corps = CorporationInfo::get(['corporation_id', 'name']);
+        $available_corps = CorporationInfo::where('creator_id', '!=', 1)->get(['corporation_id', 'name']);
 
         return view('seat-hr::configuration.corporation.create', ['available_corps' => $available_corps]);
     }
@@ -74,7 +74,7 @@ class CorporationController extends Controller
             }
 
             $corporation->fill($data);
-            if(!$corporation->isDirty()){
+            if (!$corporation->isDirty()) {
                 return redirect()->route('seat-hr.config.corp.view')
                     ->with('info', 'No changes found; corporation not updated.');
             }

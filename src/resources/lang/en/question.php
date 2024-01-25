@@ -20,9 +20,12 @@ return [
     ],
     'unknown_type' => 'Unknown question type',
     'fields' => [
+        'id' => 'ID',
         'question' => 'Question',
         'data_type' => 'Data Type',
         'enabled' => 'Enabled?',
+        'active' => 'Active?',
+        'used' => 'User?'
     ],
     'data_types' => [
         'boolean' => 'Boolean',
