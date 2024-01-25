@@ -1,15 +1,15 @@
 <?php
 
 return [
-    'title' => 'SeAT-HR Setup: Questions',
+    'title' => 'Installation de SeAT-HR : Questions',
     'sub-title' => 'Questions',
     'create' => [
-        'title' => 'Create New Question',
-        'sub-title' => 'New Question',
+        'title' => 'Créer une nouvelle question',
+        'sub-title' => 'Nouvelle Question',
     ],
     'edit' => [
-        'title' => 'Edit Question',
-        'sub-title' => 'Existing Question'
+        'title' => 'Modifier une Question',
+        'sub-title' => 'Question existante'
     ],
     'delete' => [
         'warning' => 'DANGER: Deleting a question will delete all historical answers for the question!

@@ -1,15 +1,15 @@
 <?php
 
 return [
-    'title' => 'SeAT-HR Setup: Corporation',
+    'title' => 'Installation SeAT-HR : Corporation',
     'sub-title' => 'Corporations',
     'create' => [
-        'title' => 'Add New Corporation',
-        'sub-title' => 'New Corporation',
+        'title' => 'Ajouter une nouvelle Corporation',
+        'sub-title' => 'Nouvelle Corporation',
     ],
     'edit' => [
-        'title' => 'Edit Corporation',
-        'sub-title' => 'Existing Corporation',
+        'title' => 'Editer une corporation Corporation',
+        'sub-title' => 'Société existante'
     ],
     'delete' => [
         'title' => 'Delete Corporation from HR'

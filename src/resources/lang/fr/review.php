@@ -1,25 +1,25 @@
 <?php
 
 return [
-    'title' => 'SeAT-HR Review',
+    'title' => 'Revue SeAT-HR',
 
     'alliance' => 'Alliance',
 
     'corp' => [
-        'ticker' => 'Corp Ticker',
-        'url' => 'Corp Site',
-        'tax_rate' => 'Corp Tax Rate',
-        'member_count' => 'Member Count',
-        'members_registered' => 'Members Registered in SeAT',
+        'ticker' => 'Tag de Corp',
+        'url' => 'Site de corporation',
+        'tax_rate' => 'Taux de taxe de corporation',
+        'member_count' => 'Nombre de membres',
+        'members_registered' => 'Membres inscrits à SeAT',
     ],
 
     'summary' => [
-        'title' => 'Summary',
-        'sub-title' => 'Corporation Summary'
+        'title' => 'Résumé',
+        'sub-title' => 'Résumé Corporation'
     ],
     'applications' => [
-        'title' => 'Applications',
-        'sub-title' => 'Corporation Applications'
+        'title' => 'Candidatures',
+        'sub-title' => 'Candidatures de Corporation'
     ],
 
     'application_actions' => [

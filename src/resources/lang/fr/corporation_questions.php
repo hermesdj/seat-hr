@@ -1,16 +1,16 @@
 <?php
 
 return [
-    'title' => 'SeAT-HR Setup: Corporation Questions',
+    'title' => 'Installation SeAT-HR : Question sur les Corporations',
     'sub-title' => 'Questions',
     'add' => [
-        'tooltip' => 'Add question',
+        'tooltip' => 'Ajouter une question',
     ],
     'toggle' => [
-        'tooltip' => 'Deactivate question',
+        'tooltip' => 'Désactiver la question',
     ],
     'delete' => [
-        'tooltip' => 'Delete question',
+        'tooltip' => 'Supprimer la question',
         'warning' => 'DANGER: Deleting a question will delete all historical answers for the question! \r\nYou should use the deactivate option instead to keep answers but prevent future submissions.\r\n\r\nAre you sure you want to proceed?'
     ],
 ];
