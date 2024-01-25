@@ -8,24 +8,24 @@ return [
         'sub-title' => 'Nouvelle Corporation',
     ],
     'edit' => [
-        'title' => 'Editer une corporation Corporation',
-        'sub-title' => 'Société existante'
+        'title' => 'Editer une Corporation',
+        'sub-title' => 'Corporation existante'
     ],
     'delete' => [
-        'title' => 'Delete Corporation from HR'
+        'title' => 'Supprimer la Corporation de SeAT-HR'
     ],
     'fields' => [
         'name' => 'Corporation',
         'hr_head' => 'HR Head',
-        'has_restricted_questions' => 'Has Restricted Questions ?',
-        'accepting_applications' => 'Accepting Applications ?'
+        'has_restricted_questions' => 'A des questions restreintes ?',
+        'accepting_applications' => 'Accepter les candidatures ?'
     ],
     'columns' => [
-        'name' => 'Corporation Name',
-        'contact' => 'HR Contact'
+        'name' => 'Nom de la corporation',
+        'contact' => 'Contact SeAT-HR'
     ],
-    'no_question_configured' => 'The corporation :name does not have any questions configured!',
+    'no_question_configured' => 'La corporation :name n\'a aucune question configurée!',
     'questions' => [
-        'edit_corporation_questions' => 'Edit Corporation Questions'
+        'edit_corporation_questions' => 'Modifier les questions sur la corporation'
     ]
 ];

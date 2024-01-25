@@ -12,27 +12,27 @@ return [
         'sub-title' => 'Question existante'
     ],
     'delete' => [
-        'warning' => 'DANGER: Deleting a question will delete all historical answers for the question!
-            \nThis will also lead to existing applications having this question/answer deleted, potentially leading to blank applications.
-            \nYou should use the deactivate option instead to keep answers but prevent future submissions.
-            \n\nAre you sure you want to proceed?
+        'warning' => 'DANGER: La suppression d\'une question supprimera toutes les réponses historiques pour la question!
+            \nCela entraînera également la suppression de cette question/réponse dans les candidatures existantes, ce qui pourrait conduire à des candidatures vides..
+            \nVous devez plutôt utiliser l\'option de désactivation pour conserver les réponses mais empêcher les soumissions futures..
+            \n\nÊtes-vous sur de vouloir continuer?
         '
     ],
-    'unknown_type' => 'Unknown question type',
+    'unknown_type' => 'Type de question inconnu',
     'fields' => [
         'id' => 'ID',
         'question' => 'Question',
-        'data_type' => 'Data Type',
-        'enabled' => 'Enabled?',
-        'active' => 'Active?',
-        'used' => 'User?'
+        'data_type' => 'Type de données',
+        'enabled' => 'Activé?',
+        'active' => 'Actif?',
+        'used' => 'Utilisateur?'
     ],
     'data_types' => [
-        'boolean' => 'Boolean',
+        'boolean' => 'Booléen',
         'date' => 'Date',
-        'datetime' => 'DateTime',
-        'string' => 'String',
-        'text' => 'Text'
+        'datetime' => 'DateHeure',
+        'string' => 'Chaîne',
+        'text' => 'Texte'
     ]
 
 ];

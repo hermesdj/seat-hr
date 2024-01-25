@@ -1,27 +1,27 @@
 <?php
 
 return [
-    'title' => 'Status',
-    'sub-title' => 'Status Manager',
+    'title' => 'Statut',
+    'sub-title' => 'Gestionnaire de statut',
 
     'create' => [
-        'title' => 'Create Status',
-        'sub-title' => 'Create Status',
+        'title' => 'Créer un statut',
+        'sub-title' => 'Créer un statut',
     ],
 
     'fields' => [
         'id' => 'Id',
-        'name' => 'Name',
-        'color' => 'Color',
-        'enabled' => 'Enabled ?',
-        'add_your_columns' => 'Add your columns'
+        'name' => 'Nom',
+        'color' => 'Couleur',
+        'enabled' => 'Activé ?',
+        'add_your_columns' => 'Ajoutez vos colonnes'
     ],
 
     'colors' => [
-        'primary' => 'Primary',
-        'secondary' => 'Secondary',
-        'success' => 'Success',
-        'warning' => 'Warning',
+        'primary' => 'Primaire',
+        'secondary' => 'Secondaire',
+        'success' => 'Succès',
+        'warning' => 'Avertissement',
         'danger' => 'Danger'
     ]
 ];
