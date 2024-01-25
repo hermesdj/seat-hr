@@ -10,7 +10,6 @@ return [
     'applications' => [
         'apply' => 'Postuler à la Corporation',
         'view' => 'Voir les candidatures',
-        'submit' => 'Présenter une Candidature',
         'submit' => 'Soumettre une candidature',
         'pending' => 'En attente',
         'no_corp_recruiting' => 'Aucune corporation ne recrute actuellement.',
