@@ -11,41 +11,41 @@ return [
         'apply' => 'Postuler à la Corporation',
         'view' => 'Voir les candidatures',
         'submit' => 'Présenter une Candidature',
-        'submit' => 'Submit Application',
-        'pending' => 'Pending',
-        'no_corp_recruiting' => 'No corporations are currently recruiting.',
+        'submit' => 'Soumettre une candidature',
+        'pending' => 'En attente',
+        'no_corp_recruiting' => 'Aucune corporation ne recrute actuellement.',
         'columns' => [
             'id' => 'Id',
             'corporation' => 'Corporation',
-            'status' => 'Status',
-            'can_reapply' => 'Can Re-apply',
-            'submitted_at' => 'Submitted At'
+            'status' => 'Statut',
+            'can_reapply' => 'Peut recandidater',
+            'submitted_at' => 'Soumis à'
         ],
         'application' => [
             'title' => 'Application: :application_id',
             'columns' => [
-                'status' => 'Status',
-                'status_by' => 'Status By',
-                'can_reapply' => 'Can Reapply ?',
-                'created_at' => 'Created At',
-                'last_updated' => 'Last Updated',
+                'status' => 'Statut',
+                'status_by' => 'Statut par',
+                'can_reapply' => 'Peut recandidater ?',
+                'created_at' => 'Créé à',
+                'last_updated' => 'Dernière mise à jour',
                 'app_id' => 'App ID',
-                'profile' => 'Profile'
+                'profile' => 'Profil'
             ]
         ],
         'reapply' => [
-            'yes' => 'Yes',
-            'no' => 'No'
+            'yes' => 'Oui',
+            'no' => 'Non'
         ],
         'answers' => [
-            'title' => 'Answers',
+            'title' => 'Réponses',
             'columns' => [
                 'question' => 'Question',
                 'response' => 'Response'
             ],
             'boolean' => [
-                'yes' => 'Yes',
-                'no' => 'No'
+                'yes' => 'Oui',
+                'no' => 'Non'
             ]
         ]
     ],
@@ -59,12 +59,12 @@ return [
             'sub-title' => 'Modifier l\'enregisrement de la liste noire'
         ],
         'delete' => [
-            'sub-title' => 'Delete blacklist record'
+            'sub-title' => 'Supprimer l\'enregistrement de la liste noire'
         ],
         'columns' => [
             'id' => 'Id',
-            'blacklisted_by' => 'Blacklisted By',
-            'blacklisted_at' => 'Blacklisted At',
+            'blacklisted_by' => 'Sur liste noire par',
+            'blacklisted_at' => 'Sur liste noire à',
             'reason' => 'Reason'
         ]
     ],
@@ -72,19 +72,19 @@ return [
     'kick_history' => [
         'title' => 'Historique des kicks',
         'create' => [
-            'sub-title' => 'New kick history record'
+            'sub-title' => 'Nouvel enregistrement de l\'historique des kicks'
         ],
         'edit' => [
-            'sub-title' => 'Edit kick history record'
+            'sub-title' => 'Editer l\'enregistrement de l\'historique des kicks'
         ],
         'delete' => [
-            'sub-title' => 'Delete kick history record'
+            'sub-title' => 'Supprimer l\'historique des kicks'
         ],
         'columns' => [
             'id' => 'Id',
-            'kicked_by' => 'Kicked By',
-            'kicked_at' => 'Kicked At',
-            'reason' => 'Reason'
+            'kicked_by' => 'Kické par',
+            'kicked_at' => 'Kické à',
+            'reason' => 'Raison'
         ]
     ],
 
@@ -97,7 +97,7 @@ return [
             'sub-title' => 'Editer une note'
         ],
         'delete' => [
-            'sub-title' => 'Delete user note'
+            'sub-title' => 'Supprimer une note'
         ]
     ],
 
@@ -106,11 +106,11 @@ return [
     'description_header' => 'Description',
 
     'notes_id_header' => 'Id',
-    'notes_severity_header' => 'Severity',
+    'notes_severity_header' => 'Sévérité',
     'notes_note_header' => 'Note',
 
     'severity_level_info' => 'Info',
-    'severity_level_warning' => 'Warning',
+    'severity_level_warning' => 'Avertissement',
     'severity_level_danger' => 'Danger',
 
 ];

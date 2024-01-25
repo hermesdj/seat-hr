@@ -23,13 +23,13 @@ return [
     ],
 
     'application_actions' => [
-        'view' => 'View Application',
-        'start' => 'Start Review',
-        'approve' => 'Approve Application',
-        'reject' => 'Reject Application',
-        'cancel' => 'Cancel Application',
-        'delete' => 'Delete Application',
-        'delete_waning' => 'This will permanently delete the application and answers.\n\nAre you sure you want to delete this application?'
+        'view' => 'Voir la candidature',
+        'start' => 'Commencer l\'examen',
+        'approve' => 'Approuver la candidature',
+        'reject' => 'Rejeter la candidature',
+        'cancel' => 'Annuler la candidature',
+        'delete' => 'Supprimer la candidature',
+        'delete_waning' => 'Cela supprimera définitivement la candidature et les réponses.\n\nÊtes-vous sûr de vouloir supprimer cette candidature?'
     ],
 
     'reapply' => [
