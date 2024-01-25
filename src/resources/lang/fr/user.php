@@ -25,9 +25,12 @@ return [
             'title' => 'Application: :application_id',
             'columns' => [
                 'status' => 'Status',
+                'status_by' => 'Status By',
                 'can_reapply' => 'Can Reapply ?',
                 'created_at' => 'Created At',
-                'last_updated' => 'Last Updated'
+                'last_updated' => 'Last Updated',
+                'app_id' => 'App ID',
+                'profile' => 'Profile'
             ]
         ],
         'reapply' => [
