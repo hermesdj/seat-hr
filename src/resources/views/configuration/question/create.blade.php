@@ -10,31 +10,38 @@
             @csrf
             <div class="card-body">
                 <div class="form-group">
-                    <label for="name">Question</label>
+                    <label for="name">{{trans('seat-hr::question.fields.question')}}</label>
                     <input type="text" class="form-control" name="name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="type">Data Type</label>
-                    <select name="type" id="type" class="form-control"  required>
-                        <option value="boolean">Boolean</option>
-                        <option value="date">Date</option>
-                        <option value="datetime">Date Time</option>
-                        <option value="string" selected>String</option>
-                        <option value="text">Text</option>
+                    <label for="type">{{trans('seat-hr::question.fields.data_type')}}</label>
+                    <select name="type" id="type" class="form-control" required>
+                        @php
+                            $options = ['boolean', 'date', 'datetime', 'string', 'text'];
+                        @endphp
+                        @foreach($options as $opt)
+                            <option
+                                value="{{ $opt }}"
+                            >
+                                {{trans('seat-hr::question.data_types'.$opt)}}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
 
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" name="active" id="active" value="1" checked>
-                    <label for="active" class="custom-control-label">Enabled?</label>
+                    <label for="active"
+                           class="custom-control-label">{{trans('seat-hr::question.fields.enabled')}}</label>
                 </div>
                 <div class="form-group">
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-primary" type="submit">Save</button>
-                <a href="{{ route('seat-hr.config.question.view') }}" class="btn btn-secondary">Cancel</a>
+                <button class="btn btn-primary" type="submit">{{trans('seat-hr::hr.save_btn')}}</button>
+                <a href="{{ route('seat-hr.config.question.view') }}"
+                   class="btn btn-secondary">{{trans('seat-hr::hr.cancel_btn')}}</a>
             </div>
         </form>
     </div>

@@ -3,13 +3,15 @@
 namespace Cryocaustik\SeatHr\http\controllers;
 
 use Cryocaustik\SeatHr\http\datatables\CorporationDataTable;
-use Cryocaustik\SeatHr\models\SeatHrCorporation;
-use \Seat\Web\Http\Controllers\Controller;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
+use Seat\Web\Http\Controllers\Controller;
 
 
 class SeatHrController extends Controller
 {
-    public function about()
+    public function about(): View|Application|Factory
     {
         return view('seat-hr::about');
     }

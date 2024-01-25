@@ -3,6 +3,9 @@
 namespace Cryocaustik\SeatHr\models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Support\Facades\Auth;
 use Seat\Eveapi\Models\Corporation\CorporationInfo;
 
@@ -16,17 +19,17 @@ class SeatHrCorporation extends Model
         'accepting_applications',
     ];
 
-    public function corporation()
+    public function corporation(): BelongsTo
     {
         return $this->belongsTo(CorporationInfo::class, 'corporation_id');
     }
 
-    public function questions()
+    public function questions(): HasMany
     {
         return $this->hasMany(SeatHrCorporationQuestion::class, 'corporation_id');
     }
 
-    public function applications()
+    public function applications(): HasManyThrough
     {
         return $this->hasManyThrough(SeatHrApplication::class,
             SeatHrCorporation::class,

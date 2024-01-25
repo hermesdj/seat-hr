@@ -3,20 +3,25 @@
 namespace Cryocaustik\SeatHr\http\controllers\user;
 
 use Cryocaustik\SeatHr\models\SeatHrBlacklist;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Seat\Eveapi\Models\Character\CharacterInfo;
 use Cryocaustik\SeatHr\models\SeatHrProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Seat\Web\Http\Controllers\Controller;
 
 
-class BlackListController extends \Seat\Web\Http\Controllers\Controller
+class BlackListController extends Controller
 {
-    public function index()
+    public function index(): View|Application|Factory
     {
         return view('seat-hr::user.blacklist.index');
     }
 
-    public function create(Request $request, CharacterInfo $character)
+    public function create(Request $request, CharacterInfo $character): Factory|View|Application|RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
         if($request->isMethod('post'))
         {
@@ -75,7 +80,7 @@ class BlackListController extends \Seat\Web\Http\Controllers\Controller
         return view('seat-hr::user.blacklist.edit', ['blacklist' => $blacklist]);
     }
 
-    public function delete(CharacterInfo $character, SeatHrBlacklist $blacklist)
+    public function delete(CharacterInfo $character, SeatHrBlacklist $blacklist): RedirectResponse
     {
         $blacklist->delete();
         return redirect()->back()->with('success', 'Record has been removed from the blacklist');

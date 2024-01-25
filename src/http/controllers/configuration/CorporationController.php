@@ -4,6 +4,10 @@ namespace Cryocaustik\SeatHr\http\controllers\configuration;
 
 use Cryocaustik\SeatHr\http\datatables\CorporationDataTable;
 use Cryocaustik\SeatHr\models\SeatHrCorporation;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rule;
 use Seat\Eveapi\Models\Corporation\CorporationInfo;
 use \Seat\Web\Http\Controllers\Controller;
@@ -18,7 +22,7 @@ class CorporationController extends Controller
         return $dataTable->render('seat-hr::configuration.corporation.view');
     }
 
-    public function create(Request $request)
+    public function create(Request $request): View|Factory|Application|RedirectResponse
     {
         if ($request->isMethod('post')) {
             $data = $request->all();
@@ -48,7 +52,7 @@ class CorporationController extends Controller
         return view('seat-hr::configuration.corporation.create', ['available_corps' => $available_corps]);
     }
 
-    public function edit(Request $request, $id)
+    public function edit(Request $request, $id): View|Factory|Application|RedirectResponse
     {
         $corporation = SeatHrCorporation::find($id);
         if (!$corporation) {
@@ -83,7 +87,7 @@ class CorporationController extends Controller
         return view('seat-hr::configuration.corporation.edit', ['corporation' => $corporation]);
     }
 
-    public function delete($id)
+    public function delete($id): RedirectResponse
     {
         $corporation = SeatHrCorporation::find($id);
         if (!$corporation) {

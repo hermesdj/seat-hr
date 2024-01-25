@@ -3,6 +3,7 @@
 namespace Cryocaustik\SeatHr\models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SeatHrNote extends Model
 {
@@ -13,7 +14,7 @@ class SeatHrNote extends Model
         'note',
     ];
 
-    public function creator()
+    public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
     }

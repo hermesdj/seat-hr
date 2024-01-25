@@ -7,9 +7,10 @@ use Cryocaustik\SeatHr\http\datatables\CorporationQuestionDataTable;
 use Cryocaustik\SeatHr\models\SeatHrAnswer;
 use Cryocaustik\SeatHr\models\SeatHrCorporationQuestion;
 use Cryocaustik\SeatHr\models\SeatHrQuestion;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use \Seat\Web\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Seat\Web\Http\Controllers\Controller;
 
 
 class CorporationQuestionController extends Controller
@@ -21,7 +22,7 @@ class CorporationQuestionController extends Controller
             ->render('seat-hr::configuration.corporation_questions.view', ['available_questions' => $available_questions]);
     }
 
-    public function add(Request $request)
+    public function add(Request $request): RedirectResponse
     {
         $data = $request->all();
         $data['active'] = true;
@@ -46,7 +47,7 @@ class CorporationQuestionController extends Controller
         return back()->with('success', 'Question added successfully.');
     }
 
-    public function toggle(Request $request)
+    public function toggle(Request $request): RedirectResponse
     {
         $id = $request->get('id');
         $question = SeatHrCorporationQuestion::find($id);
@@ -60,7 +61,7 @@ class CorporationQuestionController extends Controller
         return back()->with('success', 'Question updated successfully.');
     }
 
-    public function delete(Request $request)
+    public function delete(Request $request): RedirectResponse
     {
         $id = $request->get('id');
         $question = SeatHrCorporationQuestion::find($id);

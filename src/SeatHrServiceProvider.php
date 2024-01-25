@@ -47,6 +47,18 @@ class SeatHrServiceProvider extends AbstractSeatPlugin
     }
 
     /**
+     * Loads view composers to reuse data within views
+     */
+    private function loadViewComposers(): void
+    {
+        $this->app['view']->composer('seat-hr::user.*', Profile::class);
+        $this->app['view']->composer('seat-hr::review.*', Review::class);
+
+        $this->app['view']->composer('seat-hr::user.includes.menu', ProfileMenu::class);
+        $this->app['view']->composer('seat-hr::review.includes.menu', ReviewMenu::class);
+    }
+
+    /**
      * Return the plugin public name as it should be displayed into settings.
      *
      * @return string
@@ -92,17 +104,5 @@ class SeatHrServiceProvider extends AbstractSeatPlugin
     public function getPackagistVendorName(): string
     {
         return 'cryocaustik';
-    }
-
-    /**
-     * Loads view composers to reuse data within views
-     */
-    private function loadViewComposers(): void
-    {
-        $this->app['view']->composer('seat-hr::user.*', Profile::class);
-        $this->app['view']->composer('seat-hr::review.*', Review::class);
-
-        $this->app['view']->composer('seat-hr::user.includes.menu', ProfileMenu::class);
-        $this->app['view']->composer('seat-hr::review.includes.menu', ReviewMenu::class);
     }
 }

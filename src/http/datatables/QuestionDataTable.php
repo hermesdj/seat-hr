@@ -3,6 +3,9 @@
 namespace Cryocaustik\SeatHr\http\datatables;
 
 use Cryocaustik\SeatHr\models\SeatHrQuestion;
+use Illuminate\Database\Eloquent\Builder;
+use Yajra\DataTables\DataTableAbstract;
+use Yajra\DataTables\Exceptions\Exception;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
@@ -13,7 +16,8 @@ class QuestionDataTable extends DataTable
      * Build DataTable class.
      *
      * @param mixed $query Results from query() method.
-     * @return \Yajra\DataTables\DataTableAbstract
+     * @return DataTableAbstract
+     * @throws Exception
      */
     public function dataTable(mixed $query): \Yajra\DataTables\Contracts\DataTable
     {
@@ -27,10 +31,10 @@ class QuestionDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\QuestionDataTable $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param SeatHrQuestion $model
+     * @return Builder
      */
-    public function query(SeatHrQuestion $model)
+    public function query(SeatHrQuestion $model): Builder
     {
         return $model->newQuery();
     }
@@ -40,7 +44,7 @@ class QuestionDataTable extends DataTable
      *
      * @return \Yajra\DataTables\Html\Builder
      */
-    public function html()
+    public function html(): \Yajra\DataTables\Html\Builder
     {
         return $this->builder()
                     ->setTableId('questiondatatable-table')

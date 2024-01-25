@@ -1,15 +1,15 @@
 <?php
 return [
     'member' => [
-        'label' => 'Member',
-        'description' => 'Permission for every member to see the base HR profiles',
+        'label' => 'seat-hr::hr.permission_member_label',
+        'description' => 'seat-hr::hr.permission_member_desc',
     ],
     'officer' => [
-        'label' => 'Officer',
-        'description' => 'HR Officer with ability to process applications and see all user profiles',
+        'label' => 'seat-hr::hr.permission_officer_label',
+        'description' => 'seat-hr::hr.permission_officer_desc',
     ],
     'admin' => [
-        'label' => 'Administrator',
-        'description' => 'HR Head with ability to configure the whole HR plugin',
+        'label' => 'seat-hr::hr.permission_admin_label',
+        'description' => 'seat-hr::hr.permission_admin_desc',
     ],
 ];

@@ -1,11 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::group([
     'namespace' => 'Cryocaustik\SeatHr\http\controllers',
     'prefix' => 'seat-hr',
     'middleware' => [
         'web',
         'auth',
+        'locale'
     ],
 ], function(): void
 {

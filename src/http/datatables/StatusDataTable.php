@@ -1,7 +1,10 @@
 <?php
 
-namespace App\DataTables;
+namespace Cryocaustik\SeatHr\http\datatables;
 
+use Illuminate\Database\Eloquent\Builder;
+use Yajra\DataTables\DataTableAbstract;
+use Yajra\DataTables\Exceptions\Exception;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
@@ -12,7 +15,8 @@ class StatusDataTable extends DataTable
      * Build DataTable class.
      *
      * @param mixed $query Results from query() method.
-     * @return \Yajra\DataTables\DataTableAbstract
+     * @return DataTableAbstract
+     * @throws Exception
      */
     public function dataTable(mixed $query): \Yajra\DataTables\Contracts\DataTable
     {
@@ -24,9 +28,10 @@ class StatusDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param StatusDataTable $model
+     * @return Builder
      */
-    public function query(StatusDataTable $model)
+    public function query(StatusDataTable $model): Builder
     {
         return $model->newQuery();
     }
@@ -36,7 +41,7 @@ class StatusDataTable extends DataTable
      *
      * @return \Yajra\DataTables\Html\Builder
      */
-    public function html()
+    public function html(): \Yajra\DataTables\Html\Builder
     {
         return $this->builder()
                     ->setTableId('statusdatatable-table')

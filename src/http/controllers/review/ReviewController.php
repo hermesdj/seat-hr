@@ -5,10 +5,15 @@ namespace Cryocaustik\SeatHr\http\controllers\review;
 use Cryocaustik\SeatHr\http\datatables\ApplicationReviewDataTable;
 use Cryocaustik\SeatHr\models\SeatHrApplication;
 use Cryocaustik\SeatHr\models\SeatHrCorporation;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Seat\Web\Http\Controllers\Controller;
 
-class ReviewController extends \Seat\Web\Http\Controllers\Controller
+class ReviewController extends Controller
 {
-    public function index($corporation = null)
+    public function index($corporation = null): RedirectResponse
     {
         if (!$corporation) {
             $corporation = SeatHrCorporation::first();
@@ -21,7 +26,7 @@ class ReviewController extends \Seat\Web\Http\Controllers\Controller
         return redirect()->route('seat-hr.review.summary', ['corporation' => $corporation]);
     }
 
-    public function summary(SeatHrCorporation $corporation)
+    public function summary(SeatHrCorporation $corporation): View|Factory|Application
     {
         return view('seat-hr::review.summary', ['corporation' => $corporation]);
     }
@@ -32,7 +37,7 @@ class ReviewController extends \Seat\Web\Http\Controllers\Controller
             ->render('seat-hr::review.applications', ['corporation' => $corporation]);
     }
 
-    public function application_review(SeatHrCorporation $corporation, SeatHrApplication $application)
+    public function application_review(SeatHrCorporation $corporation, SeatHrApplication $application): RedirectResponse
     {
         if($application->currentStatus->status_id === 2) {
             return redirect()->back()->withErrors('Application is already in review.');
@@ -48,7 +53,7 @@ class ReviewController extends \Seat\Web\Http\Controllers\Controller
         return redirect()->back()->with('success', 'Application review started.');
     }
 
-    public function application_approve(SeatHrCorporation $corporation, SeatHrApplication $application)
+    public function application_approve(SeatHrCorporation $corporation, SeatHrApplication $application): RedirectResponse
     {
         if($application->currentStatus->status_id === 3) {
             return redirect()->back()->withErrors('Application is already approved.');
@@ -64,7 +69,7 @@ class ReviewController extends \Seat\Web\Http\Controllers\Controller
         return redirect()->back()->with('success', 'Application approved.');
     }
 
-    public function application_cancel(SeatHrCorporation $corporation, SeatHrApplication $application)
+    public function application_cancel(SeatHrCorporation $corporation, SeatHrApplication $application): RedirectResponse
     {
         if($application->currentStatus->status_id === 4) {
             return redirect()->back()->withErrors('Application is already cancelled.');
@@ -80,7 +85,7 @@ class ReviewController extends \Seat\Web\Http\Controllers\Controller
         return redirect()->back()->with('success', 'Application approved.');
     }
 
-    public function application_reject(SeatHrCorporation $corporation, SeatHrApplication $application)
+    public function application_reject(SeatHrCorporation $corporation, SeatHrApplication $application): RedirectResponse
     {
         if($application->currentStatus->status_id === 5) {
             return redirect()->back()->withErrors('Application is already rejected.');
@@ -96,7 +101,7 @@ class ReviewController extends \Seat\Web\Http\Controllers\Controller
         return redirect()->back()->with('success', 'Application rejected.');
     }
 
-    public function application_toggle_reapply(SeatHrCorporation $corporation, SeatHrApplication $application)
+    public function application_toggle_reapply(SeatHrCorporation $corporation, SeatHrApplication $application): RedirectResponse
     {
         if($application->currentStatus->status_id < 3) {
             return redirect()->back()->withErrors('Application needs to have a decision before allowing to re-apply.');
@@ -107,7 +112,7 @@ class ReviewController extends \Seat\Web\Http\Controllers\Controller
         return redirect()->back()->with('success', 'Application re-apply toggled.');
     }
 
-    public function application_delete(SeatHrCorporation $corporation, SeatHrApplication $application)
+    public function application_delete(SeatHrCorporation $corporation, SeatHrApplication $application): RedirectResponse
     {
         $application->delete();
         return redirect()->back()->with('success', 'Application deleted.');

@@ -5,14 +5,14 @@
 @section('profile_content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Roles</h3>
+            <h3 class="card-title">{{trans('seat-hr::user.roles_header')}}</h3>
         </div>
         <div class="card-body">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Role</th>
-                        <th>Description</th>
+                        <th>{{trans('seat-hr::user.role_header')}}</th>
+                        <th>{{trans('seat-hr::user.description_header')}}</th>
                     </tr>
                 </thead>
                 <tbody>

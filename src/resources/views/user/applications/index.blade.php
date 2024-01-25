@@ -15,11 +15,11 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Corporation</th>
-                    <th>Status</th>
-                    <th>Can Re-apply</th>
-                    <th>Submitted At</th>
+                    <th>{{ trans('seat-hr::user.applications.columns.id') }}</th>
+                    <th>{{ trans('seat-hr::user.applications.columns.corporation') }}</th>
+                    <th>{{ trans('seat-hr::user.applications.columns.status') }}</th>
+                    <th>{{ trans('seat-hr::user.applications.columns.can_reapply') }}</th>
+                    <th>{{ trans('seat-hr::user.applications.columns.submitted_at') }}</th>
                 </tr>
                 </thead>
                 <tbody>
