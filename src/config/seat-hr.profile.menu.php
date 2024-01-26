@@ -2,45 +2,45 @@
 
 return [
     [
-        'name' => 'Applications',
+        'name' => 'seat-hr::hr.profile_menu_applications',
         'permission' => 'character.sheet',
         'highlight_view' => 'applications',
         'route' => 'seat-hr.profile.applications',
     ],
     [
-        'name' => 'Blacklist',
+        'name' => 'seat-hr::hr.profile_menu_blacklist',
         'permission' => 'seat-hr.officer',
         'highlight_view' => 'blacklist',
         'route' => 'seat-hr.profile.blacklist',
     ],
     [
-        'name' => 'Intel',
+        'name' => 'seat-hr::hr.profile_menu_intel',
         'permission' => 'seat-hr.officer',
         'highlight_view' => 'intel',
         'route' => 'seat-hr.profile.intel',
     ],
     [
-        'name' => 'Kick History',
+        'name' => 'seat-hr::hr.profile_menu_kick_history',
         'permission' => 'seat-hr.officer',
         'highlight_view' => 'kickhistory',
         'route' => 'seat-hr.profile.kickhistory',
     ],
     [
-        'name' => 'Notes',
+        'name' => 'seat-hr::hr.profile_menu_notes',
         'permission' => 'seat-hr.officer',
         'highlight_view' => 'note',
         'route' => 'seat-hr.profile.note',
     ],
     [
-        'name' => 'Sheet',
+        'name' => 'seat-hr::hr.profile_menu_sheet',
         'permission' => 'character.sheet',
         'highlight_view' => 'sheet',
         'route' => 'seat-hr.profile.sheet',
     ],
     [
-        'name'           => 'SeAT Profile',
-        'permission'     => 'character.sheet',
+        'name' => 'seat-hr::hr.profile_menu_seat_profile',
+        'permission' => 'character.sheet',
         'highlight_view' => 'SeAT Profile',
-        'route'          => 'seatcore::character.view.sheet',
+        'route' => 'seatcore::character.view.sheet',
     ],
 ];

@@ -10,32 +10,34 @@
             @csrf
             <div class="card-body">
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">{{ trans('seat-hr::status.fields.name') }}</label>
                     <input type="text" class="form-control" name="name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="type">Color</label>
-                    <select name="type" id="type" class="form-control"  required>
-                        <option value="primary" selected>Primary</option>
-                        <option value="secondary">Secondary</option>
-                        <option value="success">Success</option>
-                        <option value="warning">Warning</option>
-                        <option value="danger">Danger</option>
+                    <label for="type">{{ trans('seat-hr::status.fields.color') }}</label>
+                    <select name="type" id="type" class="form-control" required>
+                        <option value="primary" selected>{{ trans('seat-hr::status.colors.primary') }}</option>
+                        <option value="secondary">{{ trans('seat-hr::status.colors.secondary') }}</option>
+                        <option value="success">{{ trans('seat-hr::status.colors.success') }}</option>
+                        <option value="warning">{{ trans('seat-hr::status.colors.warning') }}</option>
+                        <option value="danger">{{ trans('seat-hr::status.colors.danger') }}</option>
                     </select>
                 </div>
 
                 <div class="custom-control custom-switch">
                     <input type="hidden" class="custom-control-input" name="active" value="0">
                     <input type="checkbox" class="custom-control-input" name="active" id="active" value="1" checked>
-                    <label for="active" class="custom-control-label">Enabled?</label>
+                    <label for="active"
+                           class="custom-control-label">{{ trans('seat-hr::status.fields.enabled') }}</label>
                 </div>
                 <div class="form-group">
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-primary" type="submit">Save</button>
-                <a href="{{ route('seat-hr.config.question.view') }}" class="btn btn-secondary">Cancel</a>
+                <button class="btn btn-primary" type="submit">{{ trans('seat-hr::hr.save_btn') }}</button>
+                <a href="{{ route('seat-hr.config.question.view') }}"
+                   class="btn btn-secondary">{{ trans('seat-hr::hr.cancel_btn') }}</a>
             </div>
         </form>
     </div>

@@ -6,7 +6,7 @@
                     <li class="nav-item">
                         <a href="{{ route($menu_entry['route'], ['character' => $character->character_id]) }}"
                            class="nav-link @if ($viewname == $menu_entry['highlight_view']) active @endif">
-                            {{ $menu_entry['name'] }}
+                            {{ trans($menu_entry['name']) }}
                         </a>
                     </li>
                 @endforeach

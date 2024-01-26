@@ -3,7 +3,7 @@
         'application' => $row->id,
     ]) }}"
    class="btn btn-sm btn-outline-{{ $row->can_reapply ? 'success' : 'danger' }}"
-   data-toggle="tooltip" data-placement="bottom" title="Toggle Reapply"
+   data-toggle="tooltip" data-placement="bottom" title="{{trans('seat-hr::review.reapply.toggle_reapply')}}"
 >
     <i class="fas fa-{{ $row->can_reapply ? 'check' : 'times' }}"></i>
 </a>

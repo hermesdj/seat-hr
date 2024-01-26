@@ -16,9 +16,7 @@
         <form
             action="{{ route('seat-hr.config.corporation-question.delete') }}"
             method="post"
-            onsubmit="return confirm('DANGER: Deleting a question will delete all historical answers for the question! ' +
-              '\r\nYou should use the deactivate option instead to keep answers but prevent future submissions.' +
-              '\r\n\r\nAre you sure you want to proceed?');"
+            onsubmit="return confirm('{{trans('seat-hr::corporation_questions.delete.warning')}}');"
         >
             @csrf
             <input type="hidden" name="id" value="{{ $row->id }}">

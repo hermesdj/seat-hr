@@ -5,6 +5,10 @@ namespace Cryocaustik\SeatHr\http\controllers\user;
 use Cryocaustik\SeatHr\models\SeatHrApplication;
 use Cryocaustik\SeatHr\models\SeatHrCorporation;
 use Cryocaustik\SeatHr\models\SeatHrProfile;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Seat\Eveapi\Models\Character\CharacterInfo;
 use \Seat\Web\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,17 +18,18 @@ use Illuminate\Support\Facades\Validator;
 
 class ApplicationController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): View|Application|Factory
     {
         return view('seat-hr::user.applications.index');
     }
 
-    public function view(CharacterInfo $character, SeatHrApplication $application)
+    public function view(CharacterInfo $character, SeatHrApplication $application): View|Application|Factory
     {
         return view('seat-hr::user.applications.view', ['application' => $application]);
     }
 
-    public function apply(Request $request, CharacterInfo $character, SeatHrCorporation $corporation = null) {
+    public function apply(Request $request, CharacterInfo $character, SeatHrCorporation $corporation = null): View|Factory|Application|RedirectResponse|\Illuminate\Contracts\Foundation\Application
+    {
         // POST, process submitted application
         if($request->isMethod('POST')) {
             if(!$corporation instanceof \Cryocaustik\SeatHr\models\SeatHrCorporation) {

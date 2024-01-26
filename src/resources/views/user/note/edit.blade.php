@@ -11,10 +11,10 @@
             <div class="card-body">
                 {{ csrf_field() }}
 
-                <input type="text" name="id" id="id" value="{{ $note->id }}" class="hidden" disabled>
+                <input type="text" name="id" id="id" value="{{ $note->id }}" class="hidden" disabled />
 
                 <div class="form-group">
-                    <label for="severity">Severity</label>
+                    <label for="severity">{{ trans('seat-hr::user.notes_severity_header') }}</label>
                     <select name="severity" id="severity" class="form-control" required>
                         @php
                             $options = ['info', 'warning', 'danger'];
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="note">Note</label>
+                    <label for="note">{{ trans('seat-hr::user.notes_note_header') }}</label>
                     <textarea name="note" id="note" rows="5" class="form-control">{{ $note->note }}</textarea>
                 </div>
 
@@ -41,7 +41,7 @@
             <div class="card-footer">
                 <button class="btn btn-success btn-block" type="submit">
                     <i class="fas fa-save"></i>
-                    Update
+                    {{ trans('seat-hr::hr.update_btn') }}
                 </button>
             </div>
         </form>

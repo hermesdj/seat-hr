@@ -4,18 +4,23 @@ namespace Cryocaustik\SeatHr\http\controllers\user;
 
 use Cryocaustik\SeatHr\models\SeatHrNote;
 use Cryocaustik\SeatHr\models\SeatHrProfile;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Seat\Eveapi\Models\Character\CharacterInfo;
+use Seat\Web\Http\Controllers\Controller;
 
-class NoteController extends \Seat\Web\Http\Controllers\Controller
+class NoteController extends Controller
 {
-    public function index()
+    public function index(): View|Factory|Application
     {
         return view('seat-hr::user.note.index');
     }
 
-    public function create(Request $request, CharacterInfo $character)
+    public function create(Request $request, CharacterInfo $character): View|Factory|Application|RedirectResponse
     {
         if($request->isMethod('post'))
         {
@@ -70,7 +75,7 @@ class NoteController extends \Seat\Web\Http\Controllers\Controller
         return view('seat-hr::user.note.edit', ['note' => $note]);
     }
 
-    public function delete(CharacterInfo $character, SeatHrNote $note)
+    public function delete(CharacterInfo $character, SeatHrNote $note): RedirectResponse
     {
         $note->delete();
 
