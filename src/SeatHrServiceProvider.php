@@ -45,7 +45,7 @@ class SeatHrServiceProvider extends AbstractSeatPlugin
         $this->registerPermissions(__DIR__ . '/config/seat-hr.permissions.php', 'seat-hr');
 
         // Notifications
-        $this->mergeConfigFrom(__DIR__ . '/Config/notifications.alerts.php', 'notifications.alerts');
+        $this->mergeConfigFrom(__DIR__ . '/config/notifications.alerts.php', 'notifications.alerts');
     }
 
     /**
