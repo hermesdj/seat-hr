@@ -6,7 +6,6 @@
         "seat-hr"
     ],
     "minimum-stability": "dev",
-
     "license": "MIT",
     "type": "seat-plugin",
     "authors": [
@@ -25,7 +24,8 @@
         "eveseat/services": "^5.0.1",
         "eveseat/web": "^5.0.1",
         "yajra/laravel-datatables-buttons": "^10.0",
-        "yajra/laravel-datatables-oracle": "^10.8"
+        "yajra/laravel-datatables-oracle": "^10.8",
+        "eveseat/notifications": "^5"
     },
     "require-dev": {
         "driftingly/rector-laravel": "^0.24.1",

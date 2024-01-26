@@ -6,12 +6,15 @@ use Cryocaustik\SeatHr\http\composers\Profile;
 use Cryocaustik\SeatHr\http\composers\ProfileMenu;
 use Cryocaustik\SeatHr\http\composers\Review;
 use Cryocaustik\SeatHr\http\composers\ReviewMenu;
+use Cryocaustik\SeatHr\models\SeatHrApplicationStatus;
+use Cryocaustik\SeatHr\Observers\SeatHrApplicationStatusObserver;
 use Seat\Services\AbstractSeatPlugin;
 
 
 class SeatHrServiceProvider extends AbstractSeatPlugin
 {
     public $app;
+
     /**
      * Bootstrap the application services.
      */
@@ -22,10 +25,10 @@ class SeatHrServiceProvider extends AbstractSeatPlugin
          */
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'seat-hr');
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'seat-hr');
         $this->loadViewComposers();
-
+        $this->addObservers();
     }
 
     /**
@@ -41,9 +44,8 @@ class SeatHrServiceProvider extends AbstractSeatPlugin
         $this->mergeConfigFrom(__DIR__ . '/config/package.character.menu.php', 'package.character.menu');
         $this->registerPermissions(__DIR__ . '/config/seat-hr.permissions.php', 'seat-hr');
 
-
-        // Register the main class to use with the facade
-        $this->app->singleton('seat-hr', fn(): \Cryocaustik\SeatHr\SeatHr => new SeatHr);
+        // Notifications
+        $this->mergeConfigFrom(__DIR__ . '/Config/notifications.alerts.php', 'notifications.alerts');
     }
 
     /**
@@ -56,6 +58,11 @@ class SeatHrServiceProvider extends AbstractSeatPlugin
 
         $this->app['view']->composer('seat-hr::user.includes.menu', ProfileMenu::class);
         $this->app['view']->composer('seat-hr::review.includes.menu', ReviewMenu::class);
+    }
+
+    private function addObservers(): void
+    {
+        SeatHrApplicationStatus::observe(SeatHrApplicationStatusObserver::class);
     }
 
     /**
