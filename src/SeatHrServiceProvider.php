@@ -86,7 +86,7 @@ class SeatHrServiceProvider extends AbstractSeatPlugin
      */
     public function getPackageRepositoryUrl(): string
     {
-        return 'https://github.com/cryocaustik/seat-hr';
+        return 'https://github.com/hermesdj/seat-hr';
     }
 
     /**
@@ -110,6 +110,6 @@ class SeatHrServiceProvider extends AbstractSeatPlugin
      */
     public function getPackagistVendorName(): string
     {
-        return 'cryocaustik';
+        return 'hermesdj';
     }
 }
