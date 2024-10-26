@@ -23,12 +23,12 @@ return [
     'review'=> 'Review Applications',
     'index' => 'Test',
 
-    'hr_profile_menu' => 'HT Profile',
+    'hr_profile_menu' => 'HR Profile',
 
     'permission_member_label' => 'Member',
     'permission_member_desc' => 'Permission for every member to see the base HR profiles',
     'permission_officer_label' => 'Officer',
-    'permission_officer_desc' => 'HR Officer with ability to process applications and see all user profiles',
+    'permission_officer_desc' => 'HR Officer with ability to process applications and see all user HR profiles',
     'permission_admin_label' => 'Administrator',
     'permission_admin_desc' => 'HR Head with ability to configure the whole HR plugin',
 

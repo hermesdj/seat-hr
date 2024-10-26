@@ -22,12 +22,12 @@ return [
     'corporation' => 'Candidature de corporation',
     'review'=> 'Examiner les candidatures',
     'index' => 'Test',
-    'hr_profile_menu' => 'Profil HT',
+    'hr_profile_menu' => 'Profil HR',
 
     'permission_member_label' => 'Membre',
     'permission_member_desc' => 'Autorisation pour chaque membre de voir les profils RH de base',
     'permission_officer_label' => 'Officier',
-    'permission_officer_desc' => 'Responsable RH capable de traiter les candidatures et de voir tous les profils d\'utilisateurs',
+    'permission_officer_desc' => 'Responsable RH capable de traiter les candidatures et de voir tous les profils RH',
     'permission_admin_label' => 'Administrateur',
     'permission_admin_desc' => 'Responsable RH avec possibilité de configurer l\'ensemble du plugin RH',
 

@@ -3,7 +3,6 @@
 namespace Cryocaustik\SeatHr\http\datatables;
 
 use Cryocaustik\SeatHr\models\SeatHrQuestion;
-use Illuminate\Database\Eloquent\Builder;
 use Yajra\DataTables\DataTableAbstract;
 use Yajra\DataTables\Exceptions\Exception;
 use Yajra\DataTables\Html\Button;
@@ -25,16 +24,16 @@ class QuestionDataTable extends DataTable
             ->eloquent($query)
             ->editColumn('type', fn($row): string => ucwords((string)$row->type))
             ->editColumn('active', fn($row) => view('seat-hr::configuration.question.partials.active', ['row' => $row]))
-            ->addColumn('action', fn($row) => view('seat-hr::configuration.question.partials.actions', ['row' => $row])->render());
+            ->addColumn('action', fn($row) => view('seat-hr::configuration.question.partials.actions', ['row' => $row]));
     }
 
     /**
      * Get query source of dataTable.
      *
      * @param SeatHrQuestion $model
-     * @return Builder
+     * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(SeatHrQuestion $model): Builder
+    public function query(SeatHrQuestion $model): \Illuminate\Database\Eloquent\Builder
     {
         return $model->newQuery();
     }
@@ -51,7 +50,7 @@ class QuestionDataTable extends DataTable
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('Bfrtip')
-            ->orderBy(1)
+            ->orderBy(0, 'asc')
             ->buttons(
                 Button::make('create')
                     ->action('window.location = "' . route('seat-hr.config.question.create') . '"')

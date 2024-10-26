@@ -37,7 +37,6 @@ class SeatHrServiceProvider extends AbstractSeatPlugin
     public function register(): void
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/config/seat-hr.config.php', 'seat-hr');
         $this->mergeConfigFrom(__DIR__ . '/config/seat-hr.sidebar.php', 'package.sidebar');
         $this->mergeConfigFrom(__DIR__ . '/config/seat-hr.profile.menu.php', 'seat-hr.profile.menu');
         $this->mergeConfigFrom(__DIR__ . '/config/seat-hr.review.menu.php', 'seat-hr.review.menu');

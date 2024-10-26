@@ -2,8 +2,8 @@
 
 namespace Cryocaustik\SeatHr\http\composers;
 
-use Illuminate\Contracts\View\View;
 use Cryocaustik\SeatHr\models\User;
+use Illuminate\Contracts\View\View;
 use Seat\Eveapi\Models\Character\CharacterInfo;
 
 
@@ -14,7 +14,7 @@ class Profile
     public function __construct()
     {
         $character = request()->character;
-        if(is_string($character)){
+        if (is_string($character) || is_numeric($character)) {
             $character = CharacterInfo::find($character);
         }
 

@@ -12,11 +12,7 @@ return [
         'sub-title' => 'Question existante'
     ],
     'delete' => [
-        'warning' => 'DANGER: La suppression d\'une question supprimera toutes les réponses historiques pour la question!
-            \nCela entraînera également la suppression de cette question/réponse dans les candidatures existantes, ce qui pourrait conduire à des candidatures vides..
-            \nVous devez plutôt utiliser l\'option de désactivation pour conserver les réponses mais empêcher les soumissions futures..
-            \n\nÊtes-vous sur de vouloir continuer?
-        '
+        'warning' => 'DANGER: La suppression d\'une question supprimera toutes les réponses historiques pour la question!\nCela entraînera également la suppression de cette question/réponse dans les candidatures existantes, ce qui pourrait conduire à des candidatures vides...\nVous devez plutôt utiliser l\'option de désactivation pour conserver les réponses mais empêcher les soumissions futures..\n\nÊtes-vous sur de vouloir continuer?'
     ],
     'unknown_type' => 'Type de question inconnu',
     'fields' => [

@@ -10,12 +10,13 @@
         <div class="card-body">
             <table class="table">
                 <thead>
-                    <tr>
-                        <th>{{trans('seat-hr::user.role_header')}}</th>
-                        <th>{{trans('seat-hr::user.description_header')}}</th>
-                    </tr>
+                <tr>
+                    <th>{{trans('seat-hr::user.role_header')}}</th>
+                    <th>{{trans('seat-hr::user.description_header')}}</th>
+                </tr>
                 </thead>
                 <tbody>
+                @if($seat_hr_user != null)
                     @foreach($seat_hr_user->roles()->get() as $role)
                         <tr>
                             <td>
@@ -27,6 +28,7 @@
                             <td>{{ $role->description }}</td>
                         </tr>
                     @endforeach
+                @endif
                 </tbody>
             </table>
         </div>
